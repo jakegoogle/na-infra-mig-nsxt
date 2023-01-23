@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-options:
-  pool:
-    name: 'projects/rcb-gcve/locations/europe-west6/workerPools/gcve-pool-europe-west6'
+#options:
+#  pool:
+#    name: 'projects/rcb-gcve/locations/europe-west6/workerPools/gcve-pool-europe-west6'
 
 steps:
 - id: 'branch name'

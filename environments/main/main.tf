@@ -95,3 +95,4 @@ resource "nsxt_policy_segment" "segment_3" {
 
 }
 */
+

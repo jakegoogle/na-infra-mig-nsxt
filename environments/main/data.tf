@@ -11,12 +11,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+/*
 data "google_project" "project" {
   project_id = var.project
 }
 
-/*
+
 data "google_secret_manager_secret" "eu_west2_nsx_passwd" {
   secret_id = var.nsx["secret_id"]
 }

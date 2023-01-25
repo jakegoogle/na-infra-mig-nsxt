@@ -14,7 +14,7 @@
 
 options:
   pool:
-    name: 'projects/rcb-gcve/locations/europe-west6/workerPools/gcve-pool-europe-west6'
+    name: 'projects/rcb-gcve/locations/europe-west6/workerPools/ext-gcve-pool-europe-west6'
 
 steps:
 - id: 'branch name'

@@ -11,20 +11,20 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-/*
+
 data "google_project" "project" {
   project_id = var.project
 }
 
 
-data "google_secret_manager_secret" "eu_west2_nsx_passwd" {
+data "google_secret_manager_secret" "eu_west6_nsx_passwd" {
   secret_id = var.nsx["secret_id"]
 }
 
-data "google_secret_manager_secret_version" "eu_west2_nsx_passwd_data" {
-  secret = data.google_secret_manager_secret.eu_west2_nsx_passwd.secret_id
+data "google_secret_manager_secret_version" "eu_west6_nsx_passwd_data" {
+  secret = data.google_secret_manager_secret.eu_west6_nsx_passwd.secret_id
 }
-
+/*
 data "nsxt_policy_transport_zone" "overlay_tz" {
   display_name = var.nsx_data_vars["transport_zone"]
 }

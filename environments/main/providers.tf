@@ -18,24 +18,23 @@ terraform {
       source = "hashicorp/google"
       version = "4.37.0"
     }
-    /*
     nsxt = {
       source = "vmware/nsxt"
       version = "3.2.8"
     }
-  }*/
+  }
 }
-/*
-provider "nsxt" {
-  host                 = var.nsx["ip"]
-  username             = "admin"
-  password             = data.google_secret_manager_secret_version.eu_west2_nsx_passwd_data.secret_data
-  allow_unverified_ssl = true
-  max_retries          = 2
-}
-*/
+
 provider "google" {
   project = var.project
   region  = var.region
 }
+
+provider "nsxt" {
+  host                 = var.nsx["ip"]
+  username             = var.nsx["user"]
+  password             = data.google_secret_manager_secret_version.eu_west6_nsx_passwd_data.secret_data
+  allow_unverified_ssl = true
+  max_retries          = 2
 }
+

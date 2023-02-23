@@ -33,8 +33,9 @@ provider "google" {
 provider "nsxt" {
   host                 = var.nsx["ip"]
   username             = var.nsx["user"]
-  password             = data.google_secret_manager_secret_version.eu_west6_nsx_passwd_data.secret_data
+  password             = "eQWNJ4ilXDV@CTrA"
   allow_unverified_ssl = true
   max_retries          = 2
 }
 
+#data.google_secret_manager_secret_version.eu_west6_nsx_passwd_data.secret_data

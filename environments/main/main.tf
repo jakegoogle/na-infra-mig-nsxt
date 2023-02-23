@@ -25,7 +25,7 @@ module "nad_tier1_gw" {
   source             = "../../modules/nsxt-tier1-gateway"
   display_name       = "${var.nad_tier1_gw["display_name"]}-${var.environment}"
   edge_cluster_path  = data.nsxt_policy_edge_cluster.edge_cluster.path
-  enable_firewall    = var.enable_firewall
+  enable_firewall    = var.nad_tier1_gw["enable_firewall"]
   tier0_gateway_path = data.nsxt_policy_tier0_gateway.tier0_gateway.path
   tags               = var.nad_tier1_tags
 }

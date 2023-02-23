@@ -1,7 +1,7 @@
 ### Environment Variables
 project         = "rcb-gcve"
 region          = "europe-west6"
-Environment     = "dev"
+environment     = "dev"
 dns_server_list = ["ns2-159134.fad11561.europe-west6.gve.goog", "ns1-159133.fad11561.europe-west6.gve.goog"]
 
 ### NSX Manager Variables

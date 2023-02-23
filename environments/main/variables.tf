@@ -24,6 +24,12 @@ variable "region" {
   default     = "eu-west6"
 }
 
+variable "environment" {
+  type = string
+  description = "The environment resources are being deployed in"
+  default     = "dev"
+}
+
 variable "dns_server_list" {
   type        = list(string)
   description = "DNS Servers"

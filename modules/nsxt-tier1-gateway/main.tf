@@ -25,7 +25,7 @@ resource "nsxt_policy_tier1_gateway" "this" {
   tier0_path                = var.tier0_gateway_path
   route_advertisement_types = var.route_advertisement_types
   pool_allocation           = var.pool_allocation
-  dhcp_config_path          = var.dhcp_config_path
+  #dhcp_config_path          = var.dhcp_config_path
 
   dynamic "tag" {
     for_each = coalesce(var.tags, {})

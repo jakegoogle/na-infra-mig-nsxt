@@ -12,12 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-/*
-output "network_mad_mgmt" {
-  value = "${module.vpc_mad_resource.network}"
+output "nsx_tier1_gateway_id" {
+  description = "The NSX resource ID for the created Tier1 gateway."
+  value       = module.nad_tier1_gw.id
 }
 
-output "subnet" {
-  value = "${module.vpc_mad_resource.subnet}"
+output "nsx_tier1_gateway_path" {
+  description = "The NSX resource path for the created Tier1 gateway."
+  value       = module.nad_tier1_gw.path
 }
-*/
+
+output "nsx_tier1_gateway_revision" {
+  description = "The NSX object revision path for the created Tier1 gateway."
+  value       = module.nad_tier1_gw.revision
+}

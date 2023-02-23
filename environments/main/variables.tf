@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
+### Environment Variables
 variable "project" {
   type = string
   description = "The project ID to deploy to"
@@ -24,47 +24,38 @@ variable "region" {
   default     = "eu-west6"
 }
 
-# configure some variables first 
-variable "nsx" {
-  type        = map(string)
-  description = "NSX Login Details"
-}
-
-variable "nsx_data_vars" {
-  type        = map(string)
-  description = "Existing NSX vars for data sources"
-}
-
-variable "nsx_rs_vars" {
-  type        = map(string)
-  description = "NSX vars for the resources"
-}
-
-variable "nsx_tag_scope" {
-  type        = string
-  description = "Scope for the tag that will be applied to all resources"
-}
-
-variable "nsx_tag" {
-  type        = string
-  description = "Tag, the value for the scope above"
-}
-
-variable "segment_1" {
-  type        = map(string)
-  description = "NSX vars for the resources"
-}
-
-variable "segment_2" {
-  type        = map(string)
-  description = "NSX vars for the resources"
-}
-variable "segment_3" {
-  type        = map(string)
-  description = "NSX vars for the resources"
-}
-
 variable "dns_server_list" {
   type        = list(string)
   description = "DNS Servers"
 }
+
+### NSX Manager Variables 
+variable "nsx_provider" {
+  type        = map(string)
+  description = "NSX Login Details"
+}
+
+variable "nsx_data" {
+  type        = map(string)
+  description = "Existing NSX vars for data sources"
+}
+
+### NAD Tier1 Variables
+nad_tier1_gw {
+  description = "A map of tier1 gateway variables"
+  type        = map(string)
+  default     = {}
+}
+
+variable "nad_tier1_tags" {
+  description = "A map of NSX-T tag:scope pairs"
+  type        = map(string)
+  default     = {}
+}
+
+
+
+
+
+
+

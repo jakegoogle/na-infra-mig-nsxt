@@ -18,7 +18,7 @@ data "google_project" "project" {
 
 
 data "google_secret_manager_secret" "eu_west6_nsx_passwd" {
-  secret_id = var.nsx["secret_id"]
+  secret_id = var.nsx_provider["secret_id"]
 }
 
 data "google_secret_manager_secret_version" "eu_west6_nsx_passwd_data" {
@@ -26,13 +26,13 @@ data "google_secret_manager_secret_version" "eu_west6_nsx_passwd_data" {
 }
 
 data "nsxt_policy_transport_zone" "overlay_tz" {
-  display_name = var.nsx_data_vars["transport_zone"]
+  display_name = var.nsx_data["transport_zone"]
 }
 
 data "nsxt_policy_tier0_gateway" "tier0_router" {
-  display_name = var.nsx_data_vars["t0_router_name"]
+  display_name = var.nsx_data["t0_router_name"]
 }
 
 data "nsxt_policy_edge_cluster" "edge_cluster" {
-  display_name = var.nsx_data_vars["edge_cluster"]
+  display_name = var.nsx_data["edge_cluster"]
 }

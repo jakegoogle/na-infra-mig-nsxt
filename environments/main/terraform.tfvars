@@ -1,41 +1,32 @@
-# Environment Variables
-project                         = "rcb-gcve"
-region                          = "europe-west6"
+### Environment Variables
+project         = "rcb-gcve"
+region          = "europe-west6"
+Environment     = "dev"
+dns_server_list = ["ns2-159134.fad11561.europe-west6.gve.goog", "ns1-159133.fad11561.europe-west6.gve.goog"]
 
-nsx = {
+### NSX Manager Variables
+nsx_provider = {
   ip          = "172.16.0.66"
   dns         = "nsx-159736.fad11561.europe-west6.gve.goog"
   user        = "admin"
   secret_id   = "nsxt-passwd"
 }
 
-nsx_data_vars = {
+nsx_data = {
   transport_zone = "TZ-OVERLAY"
-  t0_router_name = "Provider-LR"
   edge_cluster   = "edge-cluster"
-  t1_router_name = "Tier1"
 }
 
-nsx_rs_vars = {
-  t1_router_name = "prd-tier1-router"
+### NAD Tier1 Variables
+nad_tier1_gw = {
+  display_name     = "nad"
+  t0_router_name   = "Provider-LR"
+  edge_cluster     = "edge-cluster"
+  enable_firewall  = "true"
 }
 
-nsx_tag_scope = "prd-segments"
-nsx_tag       = "prd-terraform-segment-policy"
-dns_server_list = ["172.16.0.130", "172.16.0.131"]
-
-segment_1 = {
-  gw      = "172.24.16.1"
-  mask    = "24"
+nad_tier1_tags         = { 
+  region      = "nad"
+  environment = "dev" 
 }
 
-segment_2 = {
-  gw      = "172.24.17.1"
-  mask    = "24"
-
-}
-
-segment_3 = {
-  gw      = "172.24.18.1"
-  mask    = "24"
-}

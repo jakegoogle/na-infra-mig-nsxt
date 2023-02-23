@@ -14,13 +14,13 @@ nsx_provider = {
 
 nsx_data = {
   transport_zone = "TZ-OVERLAY"
+  t0_router_name   = "Provider-LR"
   edge_cluster   = "edge-cluster"
 }
 
 ### NAD Tier1 Variables
 nad_tier1_gw = {
   display_name     = "nad"
-  t0_router_name   = "Provider-LR"
   edge_cluster     = "edge-cluster"
   enable_firewall  = "true"
 }

@@ -13,7 +13,7 @@ nsx_data_vars = {
   transport_zone = "TZ-OVERLAY"
   t0_router_name = "Provider-LR"
   edge_cluster   = "edge-cluster"
-  t1_router_name = "Tier1`"
+  t1_router_name = "Tier1"
 }
 
 nsx_rs_vars = {

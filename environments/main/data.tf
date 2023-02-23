@@ -24,7 +24,7 @@ data "google_secret_manager_secret" "eu_west6_nsx_passwd" {
 data "google_secret_manager_secret_version" "eu_west6_nsx_passwd_data" {
   secret = data.google_secret_manager_secret.eu_west6_nsx_passwd.secret_id
 }
-/*
+
 data "nsxt_policy_transport_zone" "overlay_tz" {
   display_name = var.nsx_data_vars["transport_zone"]
 }
@@ -36,4 +36,3 @@ data "nsxt_policy_tier0_gateway" "tier0_router" {
 data "nsxt_policy_edge_cluster" "edge_cluster" {
   display_name = var.nsx_data_vars["edge_cluster"]
 }
-*/

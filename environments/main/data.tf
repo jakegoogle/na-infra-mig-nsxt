@@ -29,7 +29,7 @@ data "nsxt_policy_transport_zone" "overlay_tz" {
   display_name = var.nsx_data["transport_zone"]
 }
 
-data "nsxt_policy_tier0_gateway" "tier0_router" {
+data "nsxt_policy_tier0_gateway" "tier0_gateway" {
   display_name = var.nsx_data["t0_router_name"]
 }
 

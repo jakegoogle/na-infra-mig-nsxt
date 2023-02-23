@@ -41,7 +41,7 @@ variable "nsx_data" {
 }
 
 ### NAD Tier1 Variables
-nad_tier1_gw {
+variable "nad_tier1_gw" {
   description = "A map of tier1 gateway variables"
   type        = map(string)
   default     = {}

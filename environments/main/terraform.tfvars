@@ -24,7 +24,7 @@ nad_tier1_gw = {
   edge_cluster     = "edge-cluster"
   enable_firewall  = "true"
   pci_dmz_name     = "nad_pci_dmz"
-  pci_dmz_cidr     = "10.100.20.0/24"
+  pci_dmz_cidr     = "10.100.20.1/24"
 }
 
 nad_tier1_tags         = { 

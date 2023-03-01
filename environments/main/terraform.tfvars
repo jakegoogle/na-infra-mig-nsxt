@@ -20,11 +20,17 @@ nsx_data = {
 
 ########################### NAD Tier1 Variables ###########################
 nad_tier1_gw = {
-  display_name     = "nad"
-  edge_cluster     = "edge-cluster"
-  enable_firewall  = "true"
-  pci_dmz_name     = "nad_pci_dmz"
-  pci_dmz_cidr     = "10.100.20.1/24"
+  display_name              = "nad"
+  edge_cluster              = "edge-cluster"
+  enable_firewall           = "true"
+  pci_dmz_name              = "nad_pci_dmz"
+  pci_dmz_cidr              = "10.100.10.1/24"
+  pci_protected_name        = "nad_pci_protected"
+  pci_protected_cidr        = "10.100.20.1/24"
+  nonpci_dmz_name           = "nad_nonpci_dmz"
+  nonpci_dmz_cidr           = "10.100.30.1/24"
+  nonpci_protected_name     = "nad_nonpci_protected"
+  nonpci_protected_cidr     = "10.100.40.1/24"
 }
 
 nad_tier1_tags         = { 

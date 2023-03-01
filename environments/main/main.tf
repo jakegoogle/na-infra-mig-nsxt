@@ -38,6 +38,29 @@ module "nad_pci_dmz_segment" {
   segment_cidr        = var.nad_tier1_gw["pci_dmz_cidr"]
 }
 
+module "nad_pci_protected_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.nad_tier1_gw.path
+  display_name        = var.nad_tier1_gw["pci_protected_name"]
+  segment_cidr        = var.nad_tier1_gw["pci_protected_cidr"]
+}
+
+module "nad_nonpci_dmz_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.nad_tier1_gw.path
+  display_name        = var.nad_tier1_gw["nonpci_dmz_name"]
+  segment_cidr        = var.nad_tier1_gw["nonpci_dmz_cidr"]
+}
+
+module "nad_nonpci_protected_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.nad_tier1_gw.path
+  display_name        = var.nad_tier1_gw["nonpci_protected_name"]
+  segment_cidr        = var.nad_tier1_gw["nonpci_protected_cidr"]
+}
 ########################### NAD FW Manager Rule ###########################
 /*
 nsxt_dfw_section_description  = "New Section created using GCVE IaC Foundations"

@@ -58,7 +58,7 @@ variable "nad_tier1_tags" {
   type        = map(string)
   default     = {}
 }
-
+/*
 ########################### NAD Distributed FW Manger ###########################
 variable "nsxt_dfw_resource_description" {
   description = "A string added to the description field of all created resources"
@@ -144,7 +144,7 @@ EOT
   }))
   default = {}
 }
-
+*/
 
 
 

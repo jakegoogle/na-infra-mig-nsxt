@@ -20,7 +20,7 @@ resource "random_id" "random_num" {
   byte_length = 3
 }
 
-#### Create Additional Tier 1 Gateway for NAD Segmentation(Policy API)
+########################### NAD Tier 1 Gateway Segmentation(Policy API) ###########################
 module "nad_tier1_gw" {
   source             = "../../modules/nsxt-tier1-gateway"
   display_name       = "${var.nad_tier1_gw["display_name"]}-${var.environment}"
@@ -30,3 +30,75 @@ module "nad_tier1_gw" {
   tags               = var.nad_tier1_tags
 }
 
+module "nad_pci_dmz_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.nad_tier1_gw.path
+  display_name        = var.nad_tier1_gw["pci_dmz_name"]
+  segment_cidr        = var.nad_tier1_gw["pci_dmz_cidr"]
+}
+
+########################### NAD FW Manager Rule ###########################
+/*
+nsxt_dfw_section_description  = "New Section created using GCVE IaC Foundations"
+nsxt_dfw_section_display_name = "GCVE IaC Foundations Section"
+nsxt_dfw_insert_before_section= "Default Layer3 Section"
+nsxt_dfw_section_type         = "LAYER3"
+nsxt_dfw_section_applied_to   = {}
+
+nsxt_dfw_rules = [
+  {
+    display_name             = "gcve-iac-rule1"
+    description              = "gcve-iac-rule1-description"
+    disabled                 = false
+    action                   = "ALLOW"
+    direction                = "IN"
+    logged                   = false
+    ip_protocol              = "IPV4"
+    destinations_excluded    = false
+    source_ip_set_names      = ["ip_set_source_1", "ip_set_source_2"]
+    destination_ip_set_names = ["ip_set_dest_1"]
+    services                 = ["ex-l4-service-1", "ex-l4-service-2"]
+  },
+  {
+    display_name             = "gcve-iac-rule2"
+    description              = "gcve-iac-rule2-description"
+    disabled                 = true
+    action                   = "ALLOW"
+    direction                = "OUT"
+    logged                   = true
+    ip_protocol              = "IPV4"
+    destinations_excluded    = false
+    source_ip_set_names      = ["ip_set_source_2"]
+    destination_ip_set_names = []
+    services                 = []
+  }
+]
+
+nsxt_dfw_ip_sets = {
+  "ip_set_source_1" = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"],
+  "ip_set_source_2" = ["10.0.7.0/24", "10.0.8.0/24", "10.0.9.0/24"],
+  "ip_set_dest_1"   = ["10.0.10.0/24", "10.0.11.0/24", "10.0.12.0/24"]
+}
+
+nsxt_dfw_custom_l4_services = {
+  "ex-l4-service-1" = {
+    description       = "Sample TCP port 88"
+    protocol          = "TCP"
+    destination_ports = ["73", "8080", "81"]
+    source_ports      = []
+    tags              = { foo = "bar" }
+  },
+  "ex-l4-service-2" = {
+    description       = "Sample TCP port 8888"
+    protocol          = "TCP"
+    destination_ports = ["8888"]
+    source_ports      = ["1234"]
+    tags              = { foo = "bar" }
+  },
+}
+
+nsxt_dfw_section_tags = {
+  environment_policy = "pci_protected"
+}
+*/

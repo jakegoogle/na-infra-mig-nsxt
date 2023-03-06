@@ -58,6 +58,18 @@ variable "nad_tier1_tags" {
   type        = map(string)
   default     = {}
 }
+########################### BRZ Tier1 Variables ###########################
+variable "brz_tier1_gw" {
+  description = "A map of tier1 gateway variables"
+  type        = map(string)
+  default     = {}
+}
+
+variable "brz_tier1_tags" {
+  description = "A map of NSX-T tag:scope pairs"
+  type        = map(string)
+  default     = {}
+}
 /*
 ########################### NAD Distributed FW Manger ###########################
 variable "nsxt_dfw_resource_description" {

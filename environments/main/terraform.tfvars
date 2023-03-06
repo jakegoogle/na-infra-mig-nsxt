@@ -38,4 +38,24 @@ nad_tier1_tags         = {
   environment = "dev" 
 }
 
+########################### BRZ Tier1 Variables ###########################
+brz_tier1_gw = {
+  display_name              = "brz"
+  edge_cluster              = "edge-cluster"
+  enable_firewall           = "true"
+  pci_dmz_name              = "brz_pci_dmz"
+  pci_dmz_cidr              = "10.110.10.1/24"
+  pci_protected_name        = "brz_pci_protected"
+  pci_protected_cidr        = "10.110.20.1/24"
+  nonpci_dmz_name           = "brz_nonpci_dmz"
+  nonpci_dmz_cidr           = "10.110.30.1/24"
+  nonpci_protected_name     = "brz_nonpci_protected"
+  nonpci_protected_cidr     = "10.110.40.1/24"
+}
+
+brz_tier1_tags         = { 
+  region      = "brz"
+  environment = "dev" 
+}
+
 ########################### NAD Distributed FW Manger ###########################

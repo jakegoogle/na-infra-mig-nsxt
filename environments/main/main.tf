@@ -20,6 +20,14 @@ resource "random_id" "random_num" {
   byte_length = 3
 }
 
+########################### DNS Default Forwarding Zone ###########################
+resource "nsxt_policy_dns_forwarder_zone" "default" {
+  display_name     = "default"
+  description      = "Terraform provisioned Zone"
+  dns_domain_names = ["Any"]
+  upstream_servers = ["10.1.1.6"]
+}
+
 ########################### NAD Tier 1 Gateway Segmentation(Policy API) ###########################
 module "nad_tier1_gw" {
   source             = "../../modules/nsxt-tier1-gateway"

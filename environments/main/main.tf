@@ -20,12 +20,23 @@ resource "random_id" "random_num" {
   byte_length = 3
 }
 
-########################### DNS Default Forwarding Zone ###########################
+########################### DNS Default Forwarding Zone & Service ###########################
 resource "nsxt_policy_dns_forwarder_zone" "default" {
   display_name     = "default"
   description      = "Terraform provisioned Zone"
   dns_domain_names = ["Any"]
   upstream_servers = ["10.1.1.6"]
+}
+
+resource "nsxt_policy_gateway_dns_forwarder" "t0_gateway_service" {
+  display_name = "dns-nsx"
+  description  = "Terraform provisioned Zone"
+  gateway_path = data.nsxt_policy_tier0_gateway.tier0_gateway.path
+  listener_ip  = "10.200.0.6"
+  enabled      = true
+  log_level    = "INFO"
+
+  default_forwarder_zone_path      = nsxt_policy_forwarder_zone.default.path
 }
 
 ########################### NAD Tier 1 Gateway Segmentation(Policy API) ###########################

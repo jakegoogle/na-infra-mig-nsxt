@@ -24,7 +24,6 @@ resource "random_id" "random_num" {
 resource "nsxt_policy_dns_forwarder_zone" "default" {
   display_name     = "default"
   description      = "Terraform provisioned Zone"
-  dns_domain_names = ["Any"]
   upstream_servers = ["10.1.1.6"]
 }
 

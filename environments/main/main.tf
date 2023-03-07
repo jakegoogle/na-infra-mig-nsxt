@@ -36,7 +36,7 @@ resource "nsxt_policy_gateway_dns_forwarder" "t0_gateway_service" {
   enabled      = true
   log_level    = "INFO"
 
-  default_forwarder_zone_path      = nsxt_policy_forwarder_zone.default.path
+  default_forwarder_zone_path      = nsxt_policy_dns_forwarder_zone.default.path
 }
 
 ########################### NAD Tier 1 Gateway Segmentation(Policy API) ###########################

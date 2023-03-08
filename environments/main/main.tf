@@ -120,6 +120,131 @@ module "brz_nonpci_protected_segment" {
   display_name        = var.brz_tier1_gw["nonpci_protected_name"]
   segment_cidr        = var.brz_tier1_gw["nonpci_protected_cidr"]
 }
+########################### YAH Tier 1 Gateway Segmentation(Policy API) ###########################
+module "yah_tier1_gw" {
+  source             = "../../modules/nsxt-tier1-gateway"
+  display_name       = "${var.yah_tier1_gw["display_name"]}-${var.environment}"
+  edge_cluster_path  = data.nsxt_policy_edge_cluster.edge_cluster.path
+  enable_firewall    = var.yah_tier1_gw["enable_firewall"]
+  tier0_gateway_path = data.nsxt_policy_tier0_gateway.tier0_gateway.path
+  tags               = var.yah_tier1_tags
+}
+
+module "yah_pci_dmz_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.yah_tier1_gw.path
+  display_name        = var.yah_tier1_gw["pci_dmz_name"]
+  segment_cidr        = var.yah_tier1_gw["pci_dmz_cidr"]
+}
+
+module "yah_pci_protected_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.yah_tier1_gw.path
+  display_name        = var.yah_tier1_gw["pci_protected_name"]
+  segment_cidr        = var.yah_tier1_gw["pci_protected_cidr"]
+}
+
+module "yah_nonpci_dmz_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.yah_tier1_gw.path
+  display_name        = var.yah_tier1_gw["nonpci_dmz_name"]
+  segment_cidr        = var.yah_tier1_gw["nonpci_dmz_cidr"]
+}
+
+module "yah_nonpci_protected_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.yah_tier1_gw.path
+  display_name        = var.yah_tier1_gw["nonpci_protected_name"]
+  segment_cidr        = var.yah_tier1_gw["nonpci_protected_cidr"]
+}
+
+########################### ROSA Tier 1 Gateway Segmentation(Policy API) ###########################
+/*module "rosa_tier1_gw" {
+  source             = "../../modules/nsxt-tier1-gateway"
+  display_name       = "${var.rosa_tier1_gw["display_name"]}-${var.environment}"
+  edge_cluster_path  = data.nsxt_policy_edge_cluster.edge_cluster.path
+  enable_firewall    = var.rosa_tier1_gw["enable_firewall"]
+  tier0_gateway_path = data.nsxt_policy_tier0_gateway.tier0_gateway.path
+  tags               = var.rosa_tier1_tags
+}
+
+module "rosa_pci_dmz_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.rosa_tier1_gw.path
+  display_name        = var.rosa_tier1_gw["pci_dmz_name"]
+  segment_cidr        = var.rosa_tier1_gw["pci_dmz_cidr"]
+}
+
+module "rosa_pci_protected_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.rosa_tier1_gw.path
+  display_name        = var.rosa_tier1_gw["pci_protected_name"]
+  segment_cidr        = var.rosa_tier1_gw["pci_protected_cidr"]
+}
+
+module "rosa_nonpci_dmz_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.rosa_tier1_gw.path
+  display_name        = var.rosa_tier1_gw["nonpci_dmz_name"]
+  segment_cidr        = var.rosa_tier1_gw["nonpci_dmz_cidr"]
+}
+
+module "rosa_nonpci_protected_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.rosa_tier1_gw.path
+  display_name        = var.rosa_tier1_gw["nonpci_protected_name"]
+  segment_cidr        = var.rosa_tier1_gw["nonpci_protected_cidr"]
+}
+*/
+########################### TEV Tier 1 Gateway Segmentation(Policy API) ###########################
+/*module "tev_tier1_gw" {
+  source             = "../../modules/nsxt-tier1-gateway"
+  display_name       = "${var.tev_tier1_gw["display_name"]}-${var.environment}"
+  edge_cluster_path  = data.nsxt_policy_edge_cluster.edge_cluster.path
+  enable_firewall    = var.tev_tier1_gw["enable_firewall"]
+  tier0_gateway_path = data.nsxt_policy_tier0_gateway.tier0_gateway.path
+  tags               = var.tev_tier1_tags
+}
+
+module "tev_pci_dmz_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.tev_tier1_gw.path
+  display_name        = var.tev_tier1_gw["pci_dmz_name"]
+  segment_cidr        = var.tev_tier1_gw["pci_dmz_cidr"]
+}
+
+module "tev_pci_protected_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.tev_tier1_gw.path
+  display_name        = var.tev_tier1_gw["pci_protected_name"]
+  segment_cidr        = var.tev_tier1_gw["pci_protected_cidr"]
+}
+
+module "tev_nonpci_dmz_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.tev_tier1_gw.path
+  display_name        = var.tev_tier1_gw["nonpci_dmz_name"]
+  segment_cidr        = var.tev_tier1_gw["nonpci_dmz_cidr"]
+}
+
+module "tev_nonpci_protected_segment" {
+  source              = "../../modules/nsxt-segment"
+  transport_zone_path = data.nsxt_policy_transport_zone.overlay_tz.path
+  connectivity_path   = module.tev_tier1_gw.path
+  display_name        = var.tev_tier1_gw["nonpci_protected_name"]
+  segment_cidr        = var.tev_tier1_gw["nonpci_protected_cidr"]
+}*/
 ########################### NAD FW Manager Rule ###########################
 /*
 nsxt_dfw_section_description  = "New Section created using GCVE IaC Foundations"

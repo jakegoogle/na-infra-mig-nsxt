@@ -57,5 +57,61 @@ brz_tier1_tags         = {
   region      = "brz"
   environment = "dev" 
 }
+########################### YAH Tier1 Variables ###########################
+yah_tier1_gw = {
+  display_name              = "yah"
+  edge_cluster              = "edge-cluster"
+  enable_firewall           = "true"
+  pci_dmz_name              = "yah_pci_dmz"
+  pci_dmz_cidr              = "10.120.10.1/24"
+  pci_protected_name        = "yah_pci_protected"
+  pci_protected_cidr        = "10.120.20.1/24"
+  nonpci_dmz_name           = "yah_nonpci_dmz"
+  nonpci_dmz_cidr           = "10.120.30.1/24"
+  nonpci_protected_name     = "yah_nonpci_protected"
+  nonpci_protected_cidr     = "10.120.40.1/24"
+}
 
+yah_tier1_tags         = { 
+  region      = "yah"
+  environment = "dev" 
+}
+########################### ROSA Tier1 Variables ###########################
+/*rosa_tier1_gw = {
+  display_name              = "rosa"
+  edge_cluster              = "edge-cluster"
+  enable_firewall           = "true"
+  pci_dmz_name              = "rosa_pci_dmz"
+  pci_dmz_cidr              = "10.130.10.1/24"
+  pci_protected_name        = "rosa_pci_protected"
+  pci_protected_cidr        = "10.130.20.1/24"
+  nonpci_dmz_name           = "rosa_nonpci_dmz"
+  nonpci_dmz_cidr           = "10.130.30.1/24"
+  nonpci_protected_name     = "rosa_nonpci_protected"
+  nonpci_protected_cidr     = "10.130.40.1/24"
+}
+
+rosa_tier1_tags         = { 
+  region      = "rosa"
+  environment = "dev" 
+}
+########################### TEV Tier1 Variables ###########################
+tev_tier1_gw = {
+  display_name              = "tev"
+  edge_cluster              = "edge-cluster"
+  enable_firewall           = "true"
+  pci_dmz_name              = "tev_pci_dmz"
+  pci_dmz_cidr              = "10.140.10.1/24"
+  pci_protected_name        = "tev_pci_protected"
+  pci_protected_cidr        = "10.140.20.1/24"
+  nonpci_dmz_name           = "tev_nonpci_dmz"
+  nonpci_dmz_cidr           = "10.140.30.1/24"
+  nonpci_protected_name     = "tev_nonpci_protected"
+  nonpci_protected_cidr     = "10.140.40.1/24"
+}
+
+tev_tier1_tags         = { 
+  region      = "tev"
+  environment = "dev" 
+}*/
 ########################### NAD Distributed FW Manger ###########################

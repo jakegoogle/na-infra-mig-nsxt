@@ -77,7 +77,7 @@ yah_tier1_tags         = {
   environment = "dev" 
 }
 ########################### ROSA Tier1 Variables ###########################
-/*rosa_tier1_gw = {
+rosa_tier1_gw = {
   display_name              = "rosa"
   edge_cluster              = "edge-cluster"
   enable_firewall           = "true"
@@ -96,7 +96,7 @@ rosa_tier1_tags         = {
   environment = "dev" 
 }
 ########################### TEV Tier1 Variables ###########################
-tev_tier1_gw = {
+/*tev_tier1_gw = {
   display_name              = "tev"
   edge_cluster              = "edge-cluster"
   enable_firewall           = "true"

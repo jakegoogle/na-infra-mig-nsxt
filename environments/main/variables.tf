@@ -83,7 +83,7 @@ variable "yah_tier1_tags" {
   default     = {}
 }
 ########################### ROSA Tier1 Variables ###########################
-/*variable "rosa_tier1_gw" {
+variable "rosa_tier1_gw" {
   description = "A map of tier1 gateway variables"
   type        = map(string)
   default     = {}
@@ -95,7 +95,7 @@ variable "rosa_tier1_tags" {
   default     = {}
 }
 ########################### TEV Tier1 Variables ###########################
-variable "tev_tier1_gw" {
+/*variable "tev_tier1_gw" {
   description = "A map of tier1 gateway variables"
   type        = map(string)
   default     = {}

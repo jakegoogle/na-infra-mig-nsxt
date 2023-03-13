@@ -96,7 +96,7 @@ rosa_tier1_tags         = {
   environment = "dev" 
 }
 ########################### TEV Tier1 Variables ###########################
-/*tev_tier1_gw = {
+tev_tier1_gw = {
   display_name              = "tev"
   edge_cluster              = "edge-cluster"
   enable_firewall           = "true"
@@ -113,5 +113,5 @@ rosa_tier1_tags         = {
 tev_tier1_tags         = { 
   region      = "tev"
   environment = "dev" 
-}*/
+}
 ########################### NAD Distributed FW Manger ###########################

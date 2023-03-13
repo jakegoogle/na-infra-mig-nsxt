@@ -205,7 +205,7 @@ module "rosa_nonpci_protected_segment" {
 }
 
 ########################### TEV Tier 1 Gateway Segmentation(Policy API) ###########################
-/*module "tev_tier1_gw" {
+module "tev_tier1_gw" {
   source             = "../../modules/nsxt-tier1-gateway"
   display_name       = "${var.tev_tier1_gw["display_name"]}-${var.environment}"
   edge_cluster_path  = data.nsxt_policy_edge_cluster.edge_cluster.path
@@ -244,7 +244,7 @@ module "tev_nonpci_protected_segment" {
   connectivity_path   = module.tev_tier1_gw.path
   display_name        = var.tev_tier1_gw["nonpci_protected_name"]
   segment_cidr        = var.tev_tier1_gw["nonpci_protected_cidr"]
-}*/
+}
 ########################### NAD FW Manager Rule ###########################
 /*
 nsxt_dfw_section_description  = "New Section created using GCVE IaC Foundations"

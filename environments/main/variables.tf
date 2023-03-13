@@ -95,7 +95,7 @@ variable "rosa_tier1_tags" {
   default     = {}
 }
 ########################### TEV Tier1 Variables ###########################
-/*variable "tev_tier1_gw" {
+variable "tev_tier1_gw" {
   description = "A map of tier1 gateway variables"
   type        = map(string)
   default     = {}
@@ -105,7 +105,7 @@ variable "tev_tier1_tags" {
   description = "A map of NSX-T tag:scope pairs"
   type        = map(string)
   default     = {}
-}*/
+}
 /*
 ########################### NAD Distributed FW Manger ###########################
 variable "nsxt_dfw_resource_description" {
